@@ -11,10 +11,20 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  *
+ * A basic location based entity with just two attributes: location and description.
+ * One named query has been defined to retrieve all entries.
+ * 
+ * While creating location instances, we will be setting the id by generating random UUIDs.
+ * However we cannot use UUID as type for id, because it doesn't work with postgis.
+ * I haven't resolved this issue yet so for now, we're making id a String.
+ * 
  * @author Toaster
+ * 
  */
 @Entity
 @NamedQuery(name = "de.demo.location.findall", query = "SELECT l FROM Location l")

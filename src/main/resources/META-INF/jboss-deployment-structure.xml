@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--This file will prevent the default services that come with wildfly to be used. We're doing this for two reasons:
+1. To avoid the classpath problems - we need to add dependencies to include these in our project though
+2. Because the earlier versions of hibernate that came with wf10 had poor spatial support. By excluding the server defaults,
+we can use newer versions.-->
 <jboss-deployment-structure>
     <deployment>
         <exclusions>
